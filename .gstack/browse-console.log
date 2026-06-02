@@ -1,0 +1,14 @@
+[2026-06-01T02:50:28.400Z] [warning] Unrecognized feature: 'web-share'.
+[2026-06-01T03:00:35.206Z] [warning] Unrecognized feature: 'web-share'.
+[2026-06-01T03:08:13.376Z] [warning] Unrecognized feature: 'web-share'.
+[2026-06-01T03:14:37.958Z] [warning] Unrecognized feature: 'web-share'.
+[2026-06-01T03:20:27.003Z] [warning] Unrecognized feature: 'web-share'.
+[2026-06-01T03:22:55.234Z] [info] LegacyDataMixin will be applied to all legacy elements.
+Set `_legacyUndefinedCheck: true` on element class to enable.
+[2026-06-01T03:22:55.413Z] [error] Failed to load resource: the server responded with a status of 403 ()
+[2026-06-01T03:22:56.292Z] [error] Failed to load resource: the server responded with a status of 403 ()
+[2026-06-01T03:22:56.300Z] [error] Failed to load resource: the server responded with a status of 403 ()
+[2026-06-01T03:22:56.394Z] [error] Failed to load resource: the server responded with a status of 403 ()
+[2026-06-01T03:22:56.395Z] [error] Failed to load resource: the server responded with a status of 403 ()
+[2026-06-01T03:22:56.512Z] [error] Failed to load resource: the server responded with a status of 403 ()
+[2026-06-01T03:22:56.512Z] [error] Failed to load resource: the server responded with a status of 403 ()
