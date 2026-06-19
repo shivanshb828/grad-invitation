@@ -1667,40 +1667,37 @@ window._ytPlayer = null;
 window.onYouTubeIframeAPIReady = function() {
   window._ytPlayer = new YT.Player('yt-player', {
     videoId: '3OnTWj9Do58',
-    playerVars: { autoplay:1, controls:0, loop:1, playlist:'3OnTWj9Do58', rel:0, modestbranding:1, iv_load_policy:3, fs:0, start:10 },
+    playerVars: { autoplay:1, controls:0, loop:1, playlist:'3OnTWj9Do58', rel:0, modestbranding:1, iv_load_policy:3, fs:0, start:10, mute:1 },
     events: {
       onReady: function(e) {
         window._ytReady = true;
-        e.target.setVolume(38);
+        e.target.mute();
         e.target.seekTo(10, true);
-        // Try autoplay immediately — works if browser allows it
-        e.target.playVideo();
+        e.target.playVideo(); // always works when muted
       },
       onStateChange: function() { syncMusicBtn(); }
     }
   });
 };
 
-// Start music on first interaction anywhere on the page (welcome screen tap/click)
-// This fires before Enter is clicked, so music starts as soon as they touch the screen
+// Unmute on first interaction — music was already playing silently, now it has sound
 (function() {
-  function _startOnFirstInteraction() {
+  function _unmute() {
     if (window._ytPlayer && window._ytReady) {
-      window._ytPlayer.playVideo();
+      window._ytPlayer.unMute();
+      window._ytPlayer.setVolume(38);
     } else {
-      // Player not ready yet — retry once it is
       var t = setInterval(function() {
         if (window._ytPlayer && window._ytReady) {
-          window._ytPlayer.playVideo();
+          window._ytPlayer.unMute();
+          window._ytPlayer.setVolume(38);
           clearInterval(t);
         }
       }, 200);
     }
-    document.removeEventListener('pointerdown', _startOnFirstInteraction);
-    document.removeEventListener('keydown', _startOnFirstInteraction);
   }
-  document.addEventListener('pointerdown', _startOnFirstInteraction, { once: true });
-  document.addEventListener('keydown', _startOnFirstInteraction, { once: true });
+  document.addEventListener('pointerdown', _unmute, { once: true });
+  document.addEventListener('keydown', _unmute, { once: true });
 })();
 
 function syncMusicBtn() {
