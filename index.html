@@ -1057,7 +1057,7 @@ select option{background:var(--navy-mid);color:var(--text);}
 */
 
 /* ── CONFIG — paste your /exec URL here ── */
-const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbz91mRRzywCHlQqz4F5cVwlr3Q3pTdFFUU9n7w5NjqTlCNVquMIZxYJuhQJBhfn0gJD/exec';
+const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzb6uL83CS2A9TZmtSGjWexqQubzTPjt66inaVdCSidsVVuDzHlUznB_mJXIO9Lk1yh_A/exec';
 
 /* ── WELCOME OVERLAY ── */
 function enterSite() {
@@ -1675,12 +1675,35 @@ window.onYouTubeIframeAPIReady = function() {
         window._ytReady = true;
         e.target.setVolume(38);
         e.target.seekTo(10, true);
+        // Try autoplay immediately — works if browser allows it
         e.target.playVideo();
       },
       onStateChange: function() { syncMusicBtn(); }
     }
   });
 };
+
+// Start music on first interaction anywhere on the page (welcome screen tap/click)
+// This fires before Enter is clicked, so music starts as soon as they touch the screen
+(function() {
+  function _startOnFirstInteraction() {
+    if (window._ytPlayer && window._ytReady) {
+      window._ytPlayer.playVideo();
+    } else {
+      // Player not ready yet — retry once it is
+      var t = setInterval(function() {
+        if (window._ytPlayer && window._ytReady) {
+          window._ytPlayer.playVideo();
+          clearInterval(t);
+        }
+      }, 200);
+    }
+    document.removeEventListener('pointerdown', _startOnFirstInteraction);
+    document.removeEventListener('keydown', _startOnFirstInteraction);
+  }
+  document.addEventListener('pointerdown', _startOnFirstInteraction, { once: true });
+  document.addEventListener('keydown', _startOnFirstInteraction, { once: true });
+})();
 
 function syncMusicBtn() {
   const btn = document.getElementById('music-btn');
