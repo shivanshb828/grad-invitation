@@ -962,15 +962,46 @@ select option{background:var(--navy-mid);color:var(--text);}
        data.message || ''
      ]);
 
-     if (data.email && data.attendance === 'yes') {
+     if (data.email) {
        try {
-         GmailApp.sendEmail(data.email,
-           "You're Confirmed! — Shivansh's Graduation Party 🎓",
-           "Hi " + data.first_name + ",\n\n" +
-           "We've received your RSVP! The World Awaits on August 2nd.\n\n" +
-           "📍 Royale Sakoon, 5200 Mowry Ave Suite K, Fremont, CA 94538\n" +
-           "🕠 5:30 PM onwards  |  👗 Indo-Western\n\n" +
-           "See you there!\n— The Bansal Family");
+         var firstName = data.first_name || 'Friend';
+         if (data.attendance === 'yes') {
+           var ics = [
+             'BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//ShivanshGradParty//EN',
+             'BEGIN:VEVENT',
+             'DTSTART:20260802T173000',
+             'DTEND:20260802T230000',
+             "SUMMARY:Shivansh's Graduation Party — The World Awaits",
+             'DESCRIPTION:Join us to celebrate Shivansh Bansal\'s graduation! Dress code: Indo-Western. Hosted by Sanjeev\\, Pooja & Shanaya Bansal.',
+             'LOCATION:Royale Sakoon\\, 5200 Mowry Ave Suite K\\, Fremont\\, CA 94538',
+             'END:VEVENT','END:VCALENDAR'
+           ].join('\r\n');
+           var icsBlob = Utilities.newBlob(ics, 'text/calendar', 'shivansh-grad-party.ics');
+           var htmlBody =
+             '<div style="font-family:Georgia,serif;max-width:560px;margin:0 auto;background:#001e35;color:#F0EBE0;border-radius:12px;overflow:hidden;">' +
+             '<div style="background:linear-gradient(135deg,#003B5C,#001e35);padding:40px 32px;text-align:center;">' +
+             '<p style="font-family:Georgia,serif;font-size:13px;letter-spacing:4px;text-transform:uppercase;color:#FFD100;margin:0 0 8px;">You\'re Confirmed</p>' +
+             '<h1 style="font-size:36px;color:#FFD100;margin:0;">✦ See You There! ✦</h1></div>' +
+             '<div style="padding:32px;">' +
+             '<p style="font-size:17px;line-height:1.6;">Hi ' + firstName + ',</p>' +
+             '<p style="font-size:17px;line-height:1.6;">Your RSVP is confirmed — we\'re so excited to celebrate with you!</p>' +
+             '<div style="background:rgba(255,209,0,0.08);border:1px solid rgba(255,209,0,0.25);border-radius:10px;padding:20px 24px;margin:24px 0;">' +
+             '<p style="margin:0 0 8px;font-size:15px;">📅 <strong style="color:#FFD100;">Sunday, August 2nd, 2026</strong></p>' +
+             '<p style="margin:0 0 8px;font-size:15px;">🕐 <strong style="color:#FFD100;">5:30 PM Onwards</strong></p>' +
+             '<p style="margin:0 0 8px;font-size:15px;">📍 <strong style="color:#FFD100;">Royale Sakoon</strong> — 5200 Mowry Ave Suite K, Fremont, CA 94538</p>' +
+             '<p style="margin:0;font-size:15px;">👗 <strong style="color:#FFD100;">Dress Code:</strong> Indo-Western</p></div>' +
+             '<p style="font-size:15px;color:#B8CCE8;">A calendar invite is attached — add it so you don\'t miss it!</p>' +
+             '<p style="font-size:17px;margin-top:28px;">With Love,<br><strong style="color:#FFD100;">The Bansal Family</strong><br>' +
+             '<span style="font-size:14px;color:#B8CCE8;">Sanjeev, Pooja &amp; Shanaya</span></p></div></div>';
+           GmailApp.sendEmail(data.email,
+             "You're Confirmed! ✦ Shivansh's Graduation Party — Aug 2nd",
+             "Hi " + firstName + ",\n\nYour RSVP is confirmed!\n\nSunday, August 2nd 2026 | 5:30 PM onwards\nRoyale Sakoon, 5200 Mowry Ave Suite K, Fremont, CA 94538\nDress code: Indo-Western\n\nA calendar invite is attached.\n\nWith Love,\nThe Bansal Family",
+             { htmlBody: htmlBody, attachments: [icsBlob] });
+         } else {
+           GmailApp.sendEmail(data.email,
+             "We'll Miss You — Shivansh's Graduation Party",
+             "Hi " + firstName + ",\n\nThank you for letting us know. We'll miss you on August 2nd, but we'll raise a glass in your honor!\n\nWith Love,\nThe Bansal Family");
+         }
        } catch(ex) { Logger.log('Email error: ' + ex); }
      }
      return ok();
@@ -1015,7 +1046,7 @@ select option{background:var(--navy-mid);color:var(--text);}
 */
 
 /* ── CONFIG — paste your /exec URL here ── */
-const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbyxNiB6sPYGZJMmGJvMQBBPSrGy5dqMZqytz6NAeR90HtTHjgoRQ9E6IZg2GCMCHaw-3w/exec';
+const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzEwcKsZ-YoMZPviWdM-EjubivlWVkZuhwFh-Wk9fwUU0lyv2gJw4F88pt3wTImUen9xg/exec';
 
 /* ── WELCOME OVERLAY ── */
 function enterSite() {
@@ -1336,28 +1367,39 @@ document.getElementById('rsvp-form').addEventListener('submit', async function(e
   errEl.style.display = 'none';
 
   const fd = new FormData(this);
+  const attendance = fd.get('attendance');
+  const formCard = this.closest('.form-card');
+
+  const sm = document.getElementById('success-msg');
 
   try {
+    // Verify first — block until we know if they're on the list
     if (SHEETS_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
       const resp = await fetch(SHEETS_URL, {method: 'POST', body: fd});
       let result = {status: 'ok'};
       try { result = await resp.json(); } catch(_) {}
 
       if (result.status === 'unauthorized') {
-        errEl.textContent = "We couldn't find your name on the guest list. Please double-check your email or phone number, or reach out to us directly.";
+        errEl.textContent = "We couldn't find your name on the guest list. Please double-check your phone number, or reach out to us directly.";
         errEl.style.display = 'block';
         btn.textContent = orig; btn.disabled = false;
         return;
       }
     }
 
+    // Verified — hide form and title immediately
+    formCard.querySelector('.form-title').style.display = 'none';
+    formCard.querySelector('.form-subtitle').style.display = 'none';
     this.style.display = 'none';
-    const sm = document.getElementById('success-msg');
-    sm.style.display = 'block';
 
-    if (fd.get('attendance') === 'yes') {
-      document.getElementById('passport-stamp').classList.add('stamped');
+    if (attendance === 'yes') {
+      // Fireworks go first, then Bon Voyage fades in quickly after
       if (window.launchFireworks) window.launchFireworks();
+      setTimeout(() => {
+        sm.style.display = 'block';
+        sm.style.animation = 'fadeUp 0.5s ease both';
+        document.getElementById('passport-stamp').classList.add('stamped');
+      }, 350);
     } else {
       sm.querySelector('h2').textContent = "You'll Be Missed!";
       sm.querySelector('h2').style.color = 'var(--silver)';
@@ -1365,6 +1407,7 @@ document.getElementById('rsvp-form').addEventListener('submit', async function(e
       sm.querySelector('.success-icon').textContent = '🥂';
       const st = document.getElementById('passport-stamp');
       if (st) st.style.display = 'none';
+      sm.style.display = 'block';
     }
   } catch {
     btn.textContent = orig; btn.disabled = false;
