@@ -10,16 +10,16 @@
 <script src="https://www.youtube.com/iframe_api"></script>
 <style>
 :root {
-  --navy:         #060e22;
-  --navy-mid:     #0c1a3a;
-  --gold:         #c9a84c;
-  --gold-light:   #e8d08a;
-  --gold-pale:    #f5e9c0;
-  --silver:       #c0c8d8;
-  --silver-light: #dce3ed;
-  --crystal:      #b8d4f0;
-  --text:         #e8e0d0;
-  --muted:        #7a8aaa;
+  --navy:         #001e35;       /* deep UCLA dark background */
+  --navy-mid:     #003B5C;       /* UCLA Dark Blue for cards */
+  --gold:         #FFD100;       /* UCLA Gold */
+  --gold-light:   #FFE566;       /* lighter UCLA gold */
+  --gold-pale:    #FFF6C2;       /* palest UCLA gold */
+  --silver:       #B8CCE8;       /* silver with UCLA blue tint */
+  --silver-light: #D6E5F5;       /* light silver-blue */
+  --crystal:      #8BB8E8;       /* UCLA medium blue accent */
+  --text:         #F0EBE0;       /* warm off-white body text */
+  --muted:        #6A8DAA;       /* muted blue-grey for captions */
   --success:      #5cb85c;
 }
 
@@ -39,8 +39,8 @@ html,body{
 .bg-glow{
   position:fixed;inset:0;z-index:-5;
   background:
-    radial-gradient(ellipse 90% 70% at 50% 110%, rgba(15,32,70,0.9) 0%, transparent 65%),
-    radial-gradient(ellipse 120% 80% at 30% -10%, rgba(10,22,55,0.6) 0%, transparent 60%),
+    radial-gradient(ellipse 90% 70% at 50% 110%, rgba(0,59,92,0.9) 0%, transparent 65%),
+    radial-gradient(ellipse 120% 80% at 30% -10%, rgba(0,42,70,0.6) 0%, transparent 60%),
     var(--navy);
 }
 
@@ -66,7 +66,7 @@ html,body{
 }
 .shooting-star{
   position:absolute;height:1px;width:140px;
-  background:linear-gradient(90deg,rgba(232,208,138,0.9),transparent);
+  background:linear-gradient(90deg,rgba(255,229,102,0.9),transparent);
   transform-origin:left center;
 }
 
@@ -163,15 +163,15 @@ html,body{
 .welcome-ornament{margin-bottom:20px;}
 
 @keyframes ornamentPulse{
-  0%,100%{opacity:0.7;filter:drop-shadow(0 0 6px rgba(201,168,76,0.3));}
-  50%{opacity:1;filter:drop-shadow(0 0 16px rgba(201,168,76,0.7));}
+  0%,100%{opacity:0.7;filter:drop-shadow(0 0 6px rgba(255,209,0,0.3));}
+  50%{opacity:1;filter:drop-shadow(0 0 16px rgba(255,209,0,0.7));}
 }
 .welcome-ornament svg{animation:ornamentPulse 3s ease-in-out infinite;}
 
 .welcome-title{
   font-family:'Great Vibes',cursive;
   font-size:clamp(48px,11vw,82px);
-  background:linear-gradient(90deg,#f5e9c0,#c9a84c,#fff8e0,#c9a84c,#f5e9c0);
+  background:linear-gradient(90deg,#FFF6C2,#FFD100,#FFFDE0,#FFD100,#FFF6C2);
   background-size:250% auto;
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;
   background-clip:text;
@@ -197,14 +197,12 @@ html,body{
   animation:fadeUp 1s ease 0.8s both;
 }
 
-/* gold divider line */
 .welcome-divider{
   width:180px;height:1px;margin:0 auto 20px;
   background:linear-gradient(90deg,transparent,var(--gold),transparent);
   animation:fadeUp 1s ease 0.9s both;
 }
 
-/* Class of 2026 badge */
 .welcome-badge{
   font-family:'Cinzel',serif;font-size:11px;font-weight:700;
   letter-spacing:5px;text-transform:uppercase;
@@ -215,7 +213,6 @@ html,body{
   animation:fadeUp 1s ease 1s both;
 }
 
-/* date + venue */
 .welcome-when{
   font-family:'Cinzel',serif;font-size:11px;letter-spacing:3px;
   text-transform:uppercase;color:var(--muted);
@@ -224,18 +221,17 @@ html,body{
 }
 
 .welcome-enter-btn{
-  font-family:'Cinzel',serif;font-size:14px;font-weight:700;
+  font-family:'Cinzel',serif;font-size:15px;font-weight:700;
   letter-spacing:4px;color:var(--navy);
-  background:linear-gradient(135deg,var(--gold-light),var(--gold),#b8952e);
+  background:linear-gradient(135deg,var(--gold-light),var(--gold),#CC9900);
   border:none;border-radius:50px;padding:18px 52px;
   cursor:pointer;min-height:52px;min-width:180px;
   animation:btnGlow 1.8s ease-in-out infinite, fadeUp 1s ease 1.3s both;
   margin-bottom:16px;
-  font-size:15px;
 }
 @keyframes btnGlow{
-  0%,100%{box-shadow:0 0 16px rgba(201,168,76,0.5),0 0 32px rgba(201,168,76,0.25),0 4px 20px rgba(0,0,0,0.4);}
-  50%{box-shadow:0 0 36px rgba(201,168,76,0.9),0 0 70px rgba(201,168,76,0.5),0 4px 24px rgba(0,0,0,0.4);}
+  0%,100%{box-shadow:0 0 16px rgba(255,209,0,0.5),0 0 32px rgba(255,209,0,0.25),0 4px 20px rgba(0,0,0,0.4);}
+  50%{box-shadow:0 0 36px rgba(255,209,0,0.9),0 0 70px rgba(255,209,0,0.5),0 4px 24px rgba(0,0,0,0.4);}
 }
 .welcome-skip-btn{
   font-family:'Cinzel',serif;font-size:11px;letter-spacing:2px;
@@ -247,7 +243,6 @@ html,body{
 }
 .welcome-skip-btn:hover{color:var(--gold);}
 
-/* pulsing concentric rings */
 .welcome-rings{
   position:absolute;inset:0;
   display:flex;align-items:center;justify-content:center;
@@ -255,7 +250,7 @@ html,body{
 }
 .w-ring{
   position:absolute;border-radius:50%;
-  border:1px solid rgba(201,168,76,0.18);
+  border:1px solid rgba(255,209,0,0.18);
 }
 .w-ring.r1{width:340px;height:340px;animation:ringPulse 3.5s ease-in-out infinite;}
 .w-ring.r2{width:520px;height:520px;animation:ringPulse 3.5s ease-in-out 0.7s infinite;}
@@ -265,13 +260,11 @@ html,body{
   50%{opacity:0.55;transform:scale(1.04);}
 }
 
-/* floating content block */
 .welcome-content{
   position:relative;z-index:1;
   display:flex;flex-direction:column;align-items:center;text-align:center;
   animation:floatContent 7s ease-in-out infinite;
 }
-/* graduation party line */
 .welcome-party{
   font-family:'Cinzel',serif;
   font-size:clamp(13px,3vw,18px);
@@ -297,7 +290,7 @@ html,body{
 /* ── HEADER ── */
 
 .invite-header{text-align:center;padding:60px 0 16px;}
-.compass-hdr{display:inline-block;filter:drop-shadow(0 0 12px rgba(201,168,76,0.4));}
+.compass-hdr{display:inline-block;filter:drop-shadow(0 0 12px rgba(255,209,0,0.4));}
 
 /* ── HERO ── */
 
@@ -314,7 +307,7 @@ html,body{
   background:linear-gradient(135deg,var(--gold-pale) 0%,var(--gold) 50%,var(--gold-light) 100%);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;
   background-clip:text;
-  filter:drop-shadow(0 0 40px rgba(201,168,76,0.3));
+  filter:drop-shadow(0 0 40px rgba(255,209,0,0.3));
   margin-bottom:20px;
 }
 
@@ -336,7 +329,7 @@ html,body{
 }
 .hero-milestone hr{
   flex:1;max-width:80px;border:none;
-  border-top:1px solid rgba(201,168,76,0.35);
+  border-top:1px solid rgba(255,209,0,0.35);
 }
 .grad-cap{font-size:22px;}
 .hero-occasion{
@@ -355,8 +348,8 @@ html,body{
   display:flex;justify-content:center;gap:14px;flex-wrap:wrap;
 }
 .cd-unit{
-  background:rgba(10,20,50,0.65);
-  border:1px solid rgba(201,168,76,0.2);
+  background:rgba(0,59,92,0.65);
+  border:1px solid rgba(255,209,0,0.2);
   backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
   border-radius:12px;padding:20px 14px;
   min-width:70px;text-align:center;
@@ -383,8 +376,8 @@ html,body{
   display:flex;gap:14px;justify-content:center;flex-wrap:wrap;
 }
 .detail-card{
-  background:rgba(10,20,50,0.65);
-  border:1px solid rgba(201,168,76,0.2);
+  background:rgba(0,59,92,0.65);
+  border:1px solid rgba(255,209,0,0.2);
   backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
   border-radius:12px;padding:24px 18px;
   text-align:center;flex:1;
@@ -394,7 +387,7 @@ html,body{
 }
 .detail-card:hover{
   transform:translateY(-4px);
-  border-color:rgba(201,168,76,0.5);
+  border-color:rgba(255,209,0,0.5);
 }
 .detail-icon{font-size:26px;margin-bottom:10px;display:block;}
 .detail-label{
@@ -418,12 +411,12 @@ html,body{
   font-family:'Cinzel',serif;font-size:11px;font-weight:600;
   letter-spacing:2px;text-transform:uppercase;
   color:var(--gold);background:transparent;
-  border:1px solid rgba(201,168,76,0.4);border-radius:50px;
+  border:1px solid rgba(255,209,0,0.4);border-radius:50px;
   padding:14px 32px;cursor:pointer;min-height:48px;
   transition:background 0.3s,border-color 0.3s,color 0.3s;
 }
 .cal-btn:hover{
-  background:rgba(201,168,76,0.1);border-color:var(--gold);color:var(--gold-light);
+  background:rgba(255,209,0,0.1);border-color:var(--gold);color:var(--gold-light);
 }
 
 /* ── DIVIDER ── */
@@ -434,15 +427,15 @@ html,body{
 }
 .divider::before,.divider::after{
   content:'';flex:1;height:1px;
-  background:linear-gradient(90deg,transparent,rgba(201,168,76,0.3),transparent);
+  background:linear-gradient(90deg,transparent,rgba(255,209,0,0.3),transparent);
 }
 
 /* ── RSVP FORM ── */
 
 .form-section{padding-bottom:60px;}
 .form-card{
-  background:rgba(10,20,50,0.55);
-  border:1px solid rgba(201,168,76,0.25);
+  background:rgba(0,59,92,0.55);
+  border:1px solid rgba(255,209,0,0.25);
   backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
   border-radius:16px;padding:48px 36px;
   max-width:560px;margin:0 auto;
@@ -473,8 +466,8 @@ html,body{
 .form-card input,
 .form-card select,
 .form-card textarea{
-  background:rgba(6,14,34,0.7);
-  border:1px solid rgba(201,168,76,0.2);
+  background:rgba(0,27,46,0.7);
+  border:1px solid rgba(255,209,0,0.2);
   border-radius:8px;color:var(--text);
   font-family:'Cormorant Garamond',serif;
   font-size:16px;padding:14px 16px;width:100%;
@@ -482,7 +475,7 @@ html,body{
   -webkit-appearance:none;appearance:none;
 }
 .form-card select{
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23c9a84c' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23FFD100' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
   background-repeat:no-repeat;background-position:right 16px center;
   padding-right:42px;cursor:pointer;
 }
@@ -491,16 +484,30 @@ html,body{
 .form-card select:focus,
 .form-card textarea:focus{outline:none;border-color:var(--gold);}
 .form-card input.err,
-.form-card select.err{border-color:#c94c4c;}
+.form-card select.err{border-color:#e85050;}
 .form-hint{
   font-family:'Inter',sans-serif;font-size:11px;
   color:var(--muted);margin-top:4px;
 }
 .bot-field{display:none!important;}
 
+#rsvp-error{
+  display:none;
+  color:#e85050;
+  font-family:'Cormorant Garamond',serif;
+  font-size:16px;
+  text-align:center;
+  margin-bottom:14px;
+  padding:14px 16px;
+  border:1px solid rgba(232,80,80,0.35);
+  border-radius:8px;
+  background:rgba(232,80,80,0.07);
+  line-height:1.55;
+}
+
 .submit-btn{
   width:100%;padding:16px;
-  background:linear-gradient(135deg,var(--gold),#b8952e);
+  background:linear-gradient(135deg,var(--gold),#CC9900);
   color:var(--navy);font-family:'Cinzel',serif;
   font-weight:700;font-size:14px;letter-spacing:3px;
   text-transform:uppercase;border:none;border-radius:8px;
@@ -553,7 +560,7 @@ html,body{
 .footer-love{
   font-family:'Great Vibes',cursive;font-size:38px;
   color:var(--gold-light);display:block;margin-bottom:10px;
-  filter:drop-shadow(0 0 20px rgba(201,168,76,0.3));
+  filter:drop-shadow(0 0 20px rgba(255,209,0,0.3));
 }
 .footer-family{
   font-family:'Cinzel',serif;font-size:12px;
@@ -576,7 +583,6 @@ html,body{
 }
 .footer-contact a:hover{color:var(--gold);}
 
-/* ── SELECT OPTION ── */
 select option{background:var(--navy-mid);color:var(--text);}
 
 /* ── RESPONSIVE ── */
@@ -597,19 +603,15 @@ select option{background:var(--navy-mid);color:var(--text);}
   .cd-unit{max-width:100%;}
 }
 
-/* ── SPARKLE CANVAS ── */
-
 #sparkle-canvas{
   position:fixed;inset:0;z-index:1;pointer-events:none;
 }
 
-/* ── MUSIC BUTTON ── */
-
 #music-btn{
   position:fixed;bottom:24px;right:24px;z-index:10001;
   width:52px;height:52px;border-radius:50%;
-  background:rgba(8,18,46,0.85);
-  border:1px solid rgba(201,168,76,0.45);
+  background:rgba(0,22,38,0.85);
+  border:1px solid rgba(255,209,0,0.45);
   backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
   color:var(--gold);font-size:19px;
   display:flex;align-items:center;justify-content:center;
@@ -618,24 +620,19 @@ select option{background:var(--navy-mid);color:var(--text);}
 }
 #music-btn:hover{
   border-color:var(--gold);transform:scale(1.1);
-  box-shadow:0 4px 24px rgba(201,168,76,0.3);
+  box-shadow:0 4px 24px rgba(255,209,0,0.3);
 }
 #music-btn.playing{
-  border-color:rgba(201,168,76,0.7);
-  box-shadow:0 0 16px rgba(201,168,76,0.25),0 4px 20px rgba(0,0,0,0.4);
+  border-color:rgba(255,209,0,0.7);
+  box-shadow:0 0 16px rgba(255,209,0,0.25),0 4px 20px rgba(0,0,0,0.4);
 }
-
-/* ── REDUCED MOTION ── */
 
 @media(prefers-reduced-motion:reduce){
   .shooting-star,
   .welcome-enter-btn,
   .globe-meridian,
   .welcome-ornament svg{animation:none!important;}
-  .fp-line{
-    animation:none!important;
-    stroke-dashoffset:0!important;
-  }
+  .fp-line{animation:none!important;stroke-dashoffset:0!important;}
   #passport-stamp{transition:none!important;}
   #welcome-overlay{transition:none!important;}
 }
@@ -643,7 +640,6 @@ select option{background:var(--navy-mid);color:var(--text);}
 </head>
 <body>
 
-<!-- Background layers -->
 <div class="bg-glow"></div>
 <div class="stars-static" id="stars-static"></div>
 <div class="stars-twinkle" id="stars-twinkle"></div>
@@ -658,7 +654,6 @@ select option{background:var(--navy-mid);color:var(--text);}
 <canvas id="sparkle-canvas"></canvas>
 <canvas id="fireworks-canvas"></canvas>
 
-<!-- Hidden YouTube player -->
 <div id="yt-player-wrap" style="position:fixed;left:-1px;top:-1px;width:1px;height:1px;overflow:hidden;pointer-events:none;" aria-hidden="true">
   <div id="yt-player"></div>
 </div>
@@ -666,14 +661,12 @@ select option{background:var(--navy-mid);color:var(--text);}
 <!-- Welcome overlay -->
 <div id="welcome-overlay" role="dialog" aria-modal="true" aria-label="Welcome">
 
-  <!-- Pulsing rings -->
   <div class="welcome-rings" aria-hidden="true">
     <div class="w-ring r1"></div>
     <div class="w-ring r2"></div>
     <div class="w-ring r3"></div>
   </div>
 
-  <!-- Globe wireframe -->
   <div class="globe-wrap" aria-hidden="true">
     <div class="globe-outer" style="width:440px;height:440px;opacity:0.13;">
       <div class="globe-eq"></div>
@@ -684,20 +677,19 @@ select option{background:var(--navy-mid);color:var(--text);}
     </div>
   </div>
 
-  <!-- Floating content block -->
   <div class="welcome-content">
     <div class="welcome-ornament" aria-hidden="true">
       <svg width="64" height="64" viewBox="0 0 52 52" fill="none">
-        <circle cx="26" cy="26" r="24" stroke="#c9a84c" stroke-width="1" opacity="0.6"/>
-        <circle cx="26" cy="26" r="3.5" fill="#c9a84c"/>
-        <polygon points="26,4 23,19 26,17.5 29,19" fill="#c9a84c"/>
-        <polygon points="26,48 23,33 26,34.5 29,33" fill="#c9a84c" opacity="0.6"/>
-        <polygon points="48,26 33,23 34.5,26 33,29" fill="#c9a84c" opacity="0.6"/>
-        <polygon points="4,26 19,23 17.5,26 19,29" fill="#c9a84c" opacity="0.6"/>
-        <line x1="26" y1="2" x2="26" y2="50" stroke="#c9a84c" stroke-width="0.6" opacity="0.35"/>
-        <line x1="2" y1="26" x2="50" y2="26" stroke="#c9a84c" stroke-width="0.6" opacity="0.35"/>
-        <line x1="8.7" y1="8.7" x2="43.3" y2="43.3" stroke="#c9a84c" stroke-width="0.5" opacity="0.22"/>
-        <line x1="43.3" y1="8.7" x2="8.7" y2="43.3" stroke="#c9a84c" stroke-width="0.5" opacity="0.22"/>
+        <circle cx="26" cy="26" r="24" stroke="#FFD100" stroke-width="1" opacity="0.6"/>
+        <circle cx="26" cy="26" r="3.5" fill="#FFD100"/>
+        <polygon points="26,4 23,19 26,17.5 29,19" fill="#FFD100"/>
+        <polygon points="26,48 23,33 26,34.5 29,33" fill="#FFD100" opacity="0.6"/>
+        <polygon points="48,26 33,23 34.5,26 33,29" fill="#FFD100" opacity="0.6"/>
+        <polygon points="4,26 19,23 17.5,26 19,29" fill="#FFD100" opacity="0.6"/>
+        <line x1="26" y1="2" x2="26" y2="50" stroke="#FFD100" stroke-width="0.6" opacity="0.35"/>
+        <line x1="2" y1="26" x2="50" y2="26" stroke="#FFD100" stroke-width="0.6" opacity="0.35"/>
+        <line x1="8.7" y1="8.7" x2="43.3" y2="43.3" stroke="#FFD100" stroke-width="0.5" opacity="0.22"/>
+        <line x1="43.3" y1="8.7" x2="8.7" y2="43.3" stroke="#FFD100" stroke-width="0.5" opacity="0.22"/>
       </svg>
     </div>
 
@@ -720,16 +712,16 @@ select option{background:var(--navy-mid);color:var(--text);}
     <header class="invite-header">
       <div class="compass-hdr" aria-hidden="true">
         <svg width="50" height="50" viewBox="0 0 52 52" fill="none">
-          <circle cx="26" cy="26" r="24" stroke="#c9a84c" stroke-width="1" opacity="0.5"/>
-          <circle cx="26" cy="26" r="3.5" fill="#c9a84c"/>
-          <polygon points="26,4 23,19 26,17.5 29,19" fill="#c9a84c"/>
-          <polygon points="26,48 23,33 26,34.5 29,33" fill="#c9a84c" opacity="0.55"/>
-          <polygon points="48,26 33,23 34.5,26 33,29" fill="#c9a84c" opacity="0.55"/>
-          <polygon points="4,26 19,23 17.5,26 19,29" fill="#c9a84c" opacity="0.55"/>
-          <line x1="26" y1="2" x2="26" y2="50" stroke="#c9a84c" stroke-width="0.5" opacity="0.25"/>
-          <line x1="2" y1="26" x2="50" y2="26" stroke="#c9a84c" stroke-width="0.5" opacity="0.25"/>
-          <line x1="8.7" y1="8.7" x2="43.3" y2="43.3" stroke="#c9a84c" stroke-width="0.5" opacity="0.18"/>
-          <line x1="43.3" y1="8.7" x2="8.7" y2="43.3" stroke="#c9a84c" stroke-width="0.5" opacity="0.18"/>
+          <circle cx="26" cy="26" r="24" stroke="#FFD100" stroke-width="1" opacity="0.5"/>
+          <circle cx="26" cy="26" r="3.5" fill="#FFD100"/>
+          <polygon points="26,4 23,19 26,17.5 29,19" fill="#FFD100"/>
+          <polygon points="26,48 23,33 26,34.5 29,33" fill="#FFD100" opacity="0.55"/>
+          <polygon points="48,26 33,23 34.5,26 33,29" fill="#FFD100" opacity="0.55"/>
+          <polygon points="4,26 19,23 17.5,26 19,29" fill="#FFD100" opacity="0.55"/>
+          <line x1="26" y1="2" x2="26" y2="50" stroke="#FFD100" stroke-width="0.5" opacity="0.25"/>
+          <line x1="2" y1="26" x2="50" y2="26" stroke="#FFD100" stroke-width="0.5" opacity="0.25"/>
+          <line x1="8.7" y1="8.7" x2="43.3" y2="43.3" stroke="#FFD100" stroke-width="0.5" opacity="0.18"/>
+          <line x1="43.3" y1="8.7" x2="8.7" y2="43.3" stroke="#FFD100" stroke-width="0.5" opacity="0.18"/>
         </svg>
       </div>
     </header>
@@ -738,12 +730,11 @@ select option{background:var(--navy-mid);color:var(--text);}
       <div class="hero-eyebrow">You are invited to celebrate</div>
       <h1 class="hero-name">Shivansh</h1>
 
-      <!-- Animated flight path -->
       <div class="flight-wrap" aria-hidden="true">
         <svg viewBox="0 0 500 54" preserveAspectRatio="none">
           <path class="fp-line" id="fp" d="M20,48 Q120,8 250,28 T480,16"/>
           <g id="fp-plane" opacity="0">
-            <path d="M-7,0 L5,-3.5 L7,0 L5,3.5 Z" fill="rgba(201,168,76,0.75)"/>
+            <path d="M-7,0 L5,-3.5 L7,0 L5,3.5 Z" fill="rgba(255,209,0,0.75)"/>
           </g>
         </svg>
       </div>
@@ -798,36 +789,34 @@ select option{background:var(--navy-mid);color:var(--text);}
 
     <div class="divider page" aria-hidden="true">
       <svg width="38" height="38" viewBox="0 0 52 52" fill="none">
-        <circle cx="26" cy="26" r="22" stroke="#c9a84c" stroke-width="1" opacity="0.4"/>
-        <circle cx="26" cy="26" r="3" fill="#c9a84c" opacity="0.6"/>
-        <polygon points="26,6 23.5,19 26,17.5 28.5,19" fill="#c9a84c" opacity="0.65"/>
-        <polygon points="26,46 23.5,33 26,34.5 28.5,33" fill="#c9a84c" opacity="0.38"/>
-        <polygon points="46,26 33,23.5 34.5,26 33,28.5" fill="#c9a84c" opacity="0.38"/>
-        <polygon points="6,26 19,23.5 17.5,26 19,28.5" fill="#c9a84c" opacity="0.38"/>
+        <circle cx="26" cy="26" r="22" stroke="#FFD100" stroke-width="1" opacity="0.4"/>
+        <circle cx="26" cy="26" r="3" fill="#FFD100" opacity="0.6"/>
+        <polygon points="26,6 23.5,19 26,17.5 28.5,19" fill="#FFD100" opacity="0.65"/>
+        <polygon points="26,46 23.5,33 26,34.5 28.5,33" fill="#FFD100" opacity="0.38"/>
+        <polygon points="46,26 33,23.5 34.5,26 33,28.5" fill="#FFD100" opacity="0.38"/>
+        <polygon points="6,26 19,23.5 17.5,26 19,28.5" fill="#FFD100" opacity="0.38"/>
       </svg>
     </div>
 
     <section class="form-section page" aria-label="RSVP form">
       <div class="form-card">
-        <!-- Compass rose watermark -->
         <svg class="form-watermark" viewBox="0 0 52 52" fill="none" aria-hidden="true">
-          <circle cx="26" cy="26" r="24" stroke="#c9a84c" stroke-width="2"/>
-          <circle cx="26" cy="26" r="4" fill="#c9a84c"/>
-          <polygon points="26,2 22,20 26,18 30,20" fill="#c9a84c"/>
-          <polygon points="26,50 22,32 26,34 30,32" fill="#c9a84c"/>
-          <polygon points="50,26 32,22 34,26 32,30" fill="#c9a84c"/>
-          <polygon points="2,26 20,22 18,26 20,30" fill="#c9a84c"/>
-          <line x1="26" y1="0" x2="26" y2="52" stroke="#c9a84c" stroke-width="1"/>
-          <line x1="0" y1="26" x2="52" y2="26" stroke="#c9a84c" stroke-width="1"/>
-          <line x1="7.5" y1="7.5" x2="44.5" y2="44.5" stroke="#c9a84c" stroke-width="0.8"/>
-          <line x1="44.5" y1="7.5" x2="7.5" y2="44.5" stroke="#c9a84c" stroke-width="0.8"/>
+          <circle cx="26" cy="26" r="24" stroke="#FFD100" stroke-width="2"/>
+          <circle cx="26" cy="26" r="4" fill="#FFD100"/>
+          <polygon points="26,2 22,20 26,18 30,20" fill="#FFD100"/>
+          <polygon points="26,50 22,32 26,34 30,32" fill="#FFD100"/>
+          <polygon points="50,26 32,22 34,26 32,30" fill="#FFD100"/>
+          <polygon points="2,26 20,22 18,26 20,30" fill="#FFD100"/>
+          <line x1="26" y1="0" x2="26" y2="52" stroke="#FFD100" stroke-width="1"/>
+          <line x1="0" y1="26" x2="52" y2="26" stroke="#FFD100" stroke-width="1"/>
+          <line x1="7.5" y1="7.5" x2="44.5" y2="44.5" stroke="#FFD100" stroke-width="0.8"/>
+          <line x1="44.5" y1="7.5" x2="7.5" y2="44.5" stroke="#FFD100" stroke-width="0.8"/>
         </svg>
 
         <div class="form-title">Kindly Reply</div>
         <div class="form-subtitle">Please respond by July 20, 2026</div>
 
         <form id="rsvp-form" novalidate autocomplete="on">
-          <!-- Honeypot -->
           <input class="bot-field" type="text" name="bot-field" tabindex="-1" autocomplete="off" aria-hidden="true">
           <input type="hidden" name="subject" value="RSVP — Shivansh's Graduation Party">
 
@@ -848,8 +837,8 @@ select option{background:var(--navy-mid);color:var(--text);}
           </div>
 
           <div class="form-group">
-            <label class="form-label" for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="(Optional)">
+            <label class="form-label" for="phone">Phone Number <span aria-hidden="true">*</span></label>
+            <input type="tel" id="phone" name="phone" required autocomplete="tel" placeholder="+1 (555) 000-0000">
           </div>
 
           <div class="form-group">
@@ -868,14 +857,11 @@ select option{background:var(--navy-mid);color:var(--text);}
           </div>
 
           <div class="form-group">
-            <label class="form-label" for="dietary">Dietary Restrictions</label>
-            <input type="text" id="dietary" name="dietary" placeholder="Vegetarian, allergies, etc.">
-          </div>
-
-          <div class="form-group">
             <label class="form-label" for="message">A Note for Shivansh</label>
             <textarea id="message" name="message" rows="4" placeholder="A note for Shivansh..."></textarea>
           </div>
+
+          <div id="rsvp-error" role="alert"></div>
 
           <button type="submit" class="submit-btn">Send RSVP ✦</button>
         </form>
@@ -900,24 +886,142 @@ select option{background:var(--navy-mid);color:var(--text);}
       <div class="footer-family">The Bansal Family</div>
       <div class="footer-names">Sanjeev, Pooja &amp; Shanaya</div>
       <div class="footer-contact">
-        <a href="tel:+1XXXXXXXXXX">📞 (408) 834-5184</a>
-        <a href="mailto:placeholder@email.com">✉ mspooja2610@gmail.com</a>
+        <a href="tel:+14088345184">📞 (408) 834-5184</a>
+        <a href="mailto:mspooja2610@gmail.com">✉ mspooja2610@gmail.com</a>
       </div>
     </footer>
 
   </div>
 </div>
 
+<button id="music-btn" onclick="toggleMusic()" title="Play music" aria-label="Toggle background music">▶</button>
+
 <script>
-/* ── CONFIG ── */
-const SHEETS_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+/*
+=============================================================================
+ GOOGLE SHEETS BACKEND — SETUP INSTRUCTIONS
+=============================================================================
+
+ STEP 1: Create Your Google Sheet
+ ──────────────────────────────────
+ Go to sheets.google.com → create a new spreadsheet.
+ Name it: "Shivansh Grad Party RSVPs"
+
+ Create TWO tabs inside it:
+
+ Tab 1 — rename to "Approved Guests"
+   Row 1 (headers): Name | Email | Phone
+   Fill in one guest per row. Email and phone both optional — a match on
+   either one approves the guest. Phone digits-only, so "(408) 555-1234"
+   matches "4085551234".
+
+ Tab 2 — rename to "RSVPs"
+   Row 1 (headers): Timestamp | First Name | Last Name | Email | Phone |
+                    Attendance | Guests | Message
+
+ STEP 2: Open Apps Script
+ ─────────────────────────
+ From your spreadsheet: Extensions → Apps Script
+ Delete all existing code, paste the script below, then save (Ctrl+S).
+
+ ── PASTE THIS INTO APPS SCRIPT ────────────────────────────────────────────
+
+ function doPost(e) {
+   try {
+     var ss = SpreadsheetApp.getActiveSpreadsheet();
+     var data = e.parameter;
+     if (data['bot-field'] && data['bot-field'].length > 0) return ok();
+
+     var approvedSheet = ss.getSheetByName('Approved Guests');
+     if (approvedSheet) {
+       var email = (data.email || '').toLowerCase().trim();
+       var phone = strip(data.phone || '');
+       var rows = approvedSheet.getDataRange().getValues();
+       var approved = false;
+       for (var i = 1; i < rows.length; i++) {
+         var re = (rows[i][1] || '').toString().toLowerCase().trim();
+         var rp = strip((rows[i][2] || '').toString());
+         if (phone && rp === phone && phone.length > 6) {
+           approved = true; break;
+         }
+       }
+       if (!approved) return json({ status: 'unauthorized' });
+     }
+
+     var rsvpSheet = ss.getSheetByName('RSVPs');
+     if (!rsvpSheet) rsvpSheet = ss.insertSheet('RSVPs');
+     if (rsvpSheet.getLastRow() === 0) {
+       rsvpSheet.appendRow(['Timestamp','First Name','Last Name','Email',
+         'Phone','Attendance','Guests','Message']);
+     }
+     rsvpSheet.appendRow([
+       new Date().toISOString(),
+       data.first_name || '', data.last_name || '',
+       data.email || '', data.phone || '',
+       data.attendance || '', data.guests || '',
+       data.message || ''
+     ]);
+
+     if (data.email && data.attendance === 'yes') {
+       try {
+         GmailApp.sendEmail(data.email,
+           "You're Confirmed! — Shivansh's Graduation Party 🎓",
+           "Hi " + data.first_name + ",\n\n" +
+           "We've received your RSVP! The World Awaits on August 2nd.\n\n" +
+           "📍 Royale Sakoon, 5200 Mowry Ave Suite K, Fremont, CA 94538\n" +
+           "🕠 5:30 PM onwards  |  👗 Indo-Western\n\n" +
+           "See you there!\n— The Bansal Family");
+       } catch(ex) { Logger.log('Email error: ' + ex); }
+     }
+     return ok();
+   } catch(err) { return json({ status: 'error', message: err.toString() }); }
+ }
+
+ function strip(p) { return p.replace(/\D/g, ''); }
+ function ok() { return json({ status: 'ok' }); }
+ function json(o) {
+   return ContentService.createTextOutput(JSON.stringify(o))
+     .setMimeType(ContentService.MimeType.JSON);
+ }
+ function doGet() { return ok(); }
+
+ ── END OF APPS SCRIPT ──────────────────────────────────────────────────────
+
+ STEP 3: Deploy as Web App
+ ──────────────────────────
+ 1. Click "Deploy" → "New deployment"
+ 2. Click the gear ⚙ icon next to "Select type" → choose "Web app"
+ 3. Configure:
+    • Description:    Grad Party RSVP
+    • Execute as:     Me  (your Google account)
+    • Who has access: Anyone
+ 4. Click "Deploy" → authorize → copy the Web app URL (ends in /exec)
+
+ STEP 4: Paste the URL below
+ ─────────────────────────────
+ Replace 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE' with your /exec URL.
+
+ STEP 5: Add guests to your sheet
+ ──────────────────────────────────
+ In the "Approved Guests" tab, add one row per guest:
+   Name           | Email                  | Phone
+   John Smith     | john@example.com       | 4085551234
+   Jane Doe       |                        | 4155559876
+   Bob Kumar      | bob@gmail.com          |
+
+ Tip: To disable the guest check entirely, just delete the "Approved Guests"
+ tab — everyone will be able to RSVP.
+=============================================================================
+*/
+
+/* ── CONFIG — paste your /exec URL here ── */
+const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbyxNiB6sPYGZJMmGJvMQBBPSrGy5dqMZqytz6NAeR90HtTHjgoRQ9E6IZg2GCMCHaw-3w/exec';
 
 /* ── WELCOME OVERLAY ── */
 function enterSite() {
   const ov = document.getElementById('welcome-overlay');
   ov.classList.add('fade-out');
   setTimeout(() => { ov.remove(); }, 1300);
-  /* music already started on page load — if blocked by browser, user can tap ▶ */
   if (window._ytPlayer && window._ytReady) window._ytPlayer.playVideo();
 }
 
@@ -925,7 +1029,6 @@ function enterSite() {
 (function buildStars() {
   const W = window.innerWidth, H = window.innerHeight;
 
-  // Static field via box-shadow on a 1px element
   const el = document.createElement('div');
   el.style.cssText = 'position:absolute;width:1px;height:1px;border-radius:50%;';
   const shadows = [];
@@ -941,7 +1044,6 @@ function enterSite() {
   el.style.boxShadow = shadows.join(',');
   document.getElementById('stars-static').appendChild(el);
 
-  // Twinkle A — 45 stars
   const ta = document.getElementById('stars-twinkle');
   for (let i = 0; i < 45; i++) {
     const s = document.createElement('div');
@@ -953,7 +1055,6 @@ function enterSite() {
     ta.appendChild(s);
   }
 
-  // Twinkle B — 35 stars
   const tb = document.getElementById('stars-twinkle-2');
   for (let i = 0; i < 35; i++) {
     const s = document.createElement('div');
@@ -975,9 +1076,9 @@ function enterSite() {
   resize();
   addEventListener('resize', resize);
 
-  const COLS = ['rgba(255,255,255,', 'rgba(232,208,138,', 'rgba(192,200,216,'];
+  /* UCLA gold + UCLA blue + white */
+  const COLS = ['rgba(255,255,255,', 'rgba(255,229,102,', 'rgba(139,184,232,'];
 
-  // Simple landmark silhouettes at tiny scale
   function drawEiffel(cx, x, y, s) {
     cx.beginPath();
     cx.moveTo(x, y - 6*s);
@@ -997,9 +1098,7 @@ function enterSite() {
   const MARKS = [drawEiffel, drawDome];
 
   class Pt {
-    constructor(init) {
-      this.reset(init);
-    }
+    constructor(init) { this.reset(init); }
     reset(init) {
       this.x = Math.random() * cv.width;
       this.y = init ? Math.random() * cv.height : cv.height + 8;
@@ -1047,14 +1146,15 @@ function enterSite() {
   })();
 })();
 
-/* ── MEGA FIREWORKS (3-wave grand finale) ── */
+/* ── FIREWORKS ── */
 window.launchFireworks = function() {
   const cv = document.getElementById('fireworks-canvas');
   cv.style.display = 'block';
   cv.width = innerWidth; cv.height = innerHeight;
   const cx = cv.getContext('2d');
 
-  const FWC = ['#fff','#fff','#fffde0','#e8d08a','#c9a84c','#f5e9c0','#c0c8d8','#ffd700','#ffb347','#ff9ad5','#a0d8ff'];
+  /* UCLA gold + white palette */
+  const FWC = ['#fff','#fff','#FFFDE0','#FFE566','#FFD100','#FFF6C2','#B8CCE8','#ffd700','#ffb347','#ff9ad5','#8BB8E8'];
 
   function mkSpark(x, y, type, i, total) {
     let angle, speed;
@@ -1085,11 +1185,9 @@ window.launchFireworks = function() {
   }
 
   let sparks = [];
-
   function burst(x, y, n, type) {
     for (let i=0; i<n; i++) sparks.push(mkSpark(x, y, type||'scatter', i, n));
   }
-
   function multitype(x, y) {
     burst(x, y, 90, 'scatter');
     burst(x, y, 40, 'ring');
@@ -1098,11 +1196,10 @@ window.launchFireworks = function() {
 
   let running = true;
   function frame() {
-    cx.fillStyle = 'rgba(6,14,34,0.13)';
+    cx.fillStyle = 'rgba(0,30,53,0.13)';
     cx.fillRect(0, 0, cv.width, cv.height);
     sparks = sparks.filter(s => s.al > 0.015);
     sparks.forEach(s => {
-      // Tail
       cx.beginPath(); cx.moveTo(s.px, s.py); cx.lineTo(s.x, s.y);
       cx.strokeStyle = s.c + '99'; cx.lineWidth = s.r*0.55; cx.lineCap='round'; cx.stroke();
       s.vx*=s.friction; s.vy*=s.friction; s.vy+=s.grav;
@@ -1111,7 +1208,6 @@ window.launchFireworks = function() {
       cx.globalAlpha = Math.max(0, s.al);
       cx.fillStyle = s.c;
       cx.beginPath(); cx.arc(s.x, s.y, s.r, 0, Math.PI*2); cx.fill();
-      // Twinkle cross on bright sparks
       if (s.r > 3) {
         cx.strokeStyle = s.c; cx.lineWidth=0.8; cx.beginPath();
         cx.moveTo(s.x-s.r*2.5,s.y); cx.lineTo(s.x+s.r*2.5,s.y);
@@ -1125,18 +1221,15 @@ window.launchFireworks = function() {
   }
   frame();
 
-  // WAVE 1 — Big opening scatter across upper half
   const w1 = [[.5,.28],[.28,.22],[.72,.18],[.18,.38],[.82,.32],[.42,.15],[.62,.2]];
   w1.forEach(([rx,ry],i) => setTimeout(() => multitype(cv.width*rx, cv.height*ry), i*220));
 
-  // WAVE 2 — Ring + star bursts, spread wider
   const w2 = [[.38,.12],[.64,.16],[.5,.45],[.22,.28],[.78,.26],[.55,.35],[.33,.42]];
   w2.forEach(([rx,ry],i) => setTimeout(() => {
     burst(cv.width*rx, cv.height*ry, 70, 'ring');
     burst(cv.width*rx, cv.height*ry, 50, 'star');
   }, 1300 + i*200));
 
-  // WAVE 3 — Grand finale: rapid-fire across full screen
   setTimeout(() => {
     for (let i=0; i<12; i++) setTimeout(() => {
       const rx = 0.1 + Math.random()*0.8;
@@ -1146,7 +1239,6 @@ window.launchFireworks = function() {
     }, i*130);
   }, 2800);
 
-  // Stop after 9 seconds
   setTimeout(() => { running = false; sparks = []; }, 9000);
 };
 
@@ -1162,20 +1254,16 @@ window.launchFireworks = function() {
         '<div class="celebration-text">The celebration has begun! 🎉</div>';
       return;
     }
-    const d = Math.floor(diff / 86400000);
-    const h = Math.floor((diff % 86400000) / 3600000);
-    const m = Math.floor((diff % 3600000) / 60000);
-    const s = Math.floor((diff % 60000) / 1000);
-    els.d.textContent = String(d).padStart(2,'0');
-    els.h.textContent = String(h).padStart(2,'0');
-    els.m.textContent = String(m).padStart(2,'0');
-    els.s.textContent = String(s).padStart(2,'0');
+    els.d.textContent = String(Math.floor(diff / 86400000)).padStart(2,'0');
+    els.h.textContent = String(Math.floor((diff % 86400000) / 3600000)).padStart(2,'0');
+    els.m.textContent = String(Math.floor((diff % 3600000) / 60000)).padStart(2,'0');
+    els.s.textContent = String(Math.floor((diff % 60000) / 1000)).padStart(2,'0');
     setTimeout(tick, 1000);
   }
   tick();
 })();
 
-/* ── FLIGHT PATH ANIMATION ── */
+/* ── FLIGHT PATH ── */
 (function() {
   const path = document.getElementById('fp');
   const planeG = document.getElementById('fp-plane');
@@ -1203,7 +1291,7 @@ window.launchFireworks = function() {
   requestAnimationFrame(step);
 })();
 
-/* ── CALENDAR DOWNLOAD ── */
+/* ── CALENDAR ── */
 document.getElementById('cal-btn').addEventListener('click', function() {
   const ics = [
     'BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//ShivanshGradParty//EN',
@@ -1222,15 +1310,13 @@ document.getElementById('cal-btn').addEventListener('click', function() {
 });
 
 /* ── RSVP FORM ── */
-const REQUIRED = ['first_name','last_name','email','attendance'];
+const REQUIRED = ['first_name','last_name','email','phone','attendance'];
 
 document.getElementById('rsvp-form').addEventListener('submit', async function(e) {
   e.preventDefault();
 
-  // Honeypot
   if (this.elements['bot-field'] && this.elements['bot-field'].value) return;
 
-  // Validate
   let ok = true;
   REQUIRED.forEach(id => {
     const el = document.getElementById(id);
@@ -1246,11 +1332,23 @@ document.getElementById('rsvp-form').addEventListener('submit', async function(e
   const orig = btn.textContent;
   btn.textContent = 'Sending…'; btn.disabled = true;
 
+  const errEl = document.getElementById('rsvp-error');
+  errEl.style.display = 'none';
+
   const fd = new FormData(this);
 
   try {
     if (SHEETS_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
-      await fetch(SHEETS_URL, {method:'POST', body:fd});
+      const resp = await fetch(SHEETS_URL, {method: 'POST', body: fd});
+      let result = {status: 'ok'};
+      try { result = await resp.json(); } catch(_) {}
+
+      if (result.status === 'unauthorized') {
+        errEl.textContent = "We couldn't find your name on the guest list. Please double-check your email or phone number, or reach out to us directly.";
+        errEl.style.display = 'block';
+        btn.textContent = orig; btn.disabled = false;
+        return;
+      }
     }
 
     this.style.display = 'none';
@@ -1278,7 +1376,7 @@ REQUIRED.forEach(id => {
   document.getElementById(id).addEventListener('input', function() { this.classList.remove('err'); });
 });
 
-/* ── GRAND EFFECTS SYSTEM: sparkles · cascade · grad caps · streamers ── */
+/* ── GRAND EFFECTS (sparkles · cascade · grad caps · streamers) ── */
 (function initGrandEffects() {
   const cv = document.getElementById('sparkle-canvas');
   const cx = cv.getContext('2d');
@@ -1286,10 +1384,10 @@ REQUIRED.forEach(id => {
   resize();
   addEventListener('resize', resize);
 
-  const GOLD = [[255,255,255],[232,208,138],[201,168,76],[245,233,192],[255,245,180],[255,220,100]];
-  const STREAM_COLS = [[201,168,76],[192,200,216],[220,100,100],[100,160,220],[245,233,192],[140,210,140],[255,180,80]];
+  /* UCLA gold palette */
+  const GOLD = [[255,255,255],[255,229,102],[255,209,0],[255,246,194],[255,243,163],[255,220,50]];
+  const STREAM_COLS = [[255,209,0],[139,184,232],[220,100,100],[100,160,220],[255,246,194],[140,210,140],[255,180,80]];
 
-  /* ─── 1. SPARKLE BURSTS ─── */
   let sparks = [];
 
   function addBurst(bx, by, bType) {
@@ -1334,7 +1432,7 @@ REQUIRED.forEach(id => {
   for (let i = 0; i < 14; i++) setTimeout(() => addBurst(), i * 100);
   scheduleBurst();
 
-  /* ─── 2. GOLD CASCADE CURTAIN ─── */
+  /* Gold cascade curtain */
   const CASCADE_COUNT = 70;
   let cascade = [];
 
@@ -1351,17 +1449,13 @@ REQUIRED.forEach(id => {
     }
     step() {
       this.y += this.vy; this.x += this.vx;
-      if (this.y > cv.height * this.stopFrac) {
-        this.x = Math.random() * cv.width;
-        this.y = -20;
-      }
+      if (this.y > cv.height * this.stopFrac) { this.x = Math.random() * cv.width; this.y = -20; }
     }
     draw() {
       const fade = Math.max(0, 1 - this.y / (cv.height * this.stopFrac));
       cx.globalAlpha = this.al * fade;
-      cx.strokeStyle = '#e8d08a';
-      cx.lineWidth = this.w;
-      cx.lineCap = 'round';
+      cx.strokeStyle = '#FFE566'; /* UCLA gold */
+      cx.lineWidth = this.w; cx.lineCap = 'round';
       cx.beginPath();
       cx.moveTo(this.x, this.y);
       cx.lineTo(this.x - this.vx * this.len * 0.25, this.y - this.vy * this.len * 0.25);
@@ -1371,7 +1465,7 @@ REQUIRED.forEach(id => {
   }
   for (let i = 0; i < CASCADE_COUNT; i++) cascade.push(new CascadePt(true));
 
-  /* ─── 3. FALLING 🎓 CAPS (large) ─── */
+  /* Falling 🎓 caps */
   let caps = [];
 
   class GradCap {
@@ -1382,7 +1476,7 @@ REQUIRED.forEach(id => {
       this.vx = (Math.random() - 0.5) * 1.6;
       this.rot = Math.random() * Math.PI * 2;
       this.rotV = (Math.random() - 0.5) * 0.04;
-      this.size = Math.random() * 52 + 64;   /* 64–116 px */
+      this.size = Math.random() * 52 + 64;
       this.al = Math.random() * 0.35 + 0.5;
       this.phase = Math.random() * Math.PI * 2;
       this.wAmp = Math.random() * 2.2 + 0.6;
@@ -1391,84 +1485,21 @@ REQUIRED.forEach(id => {
       this.y += this.vy;
       this.x += this.vx + Math.sin(this.phase) * this.wAmp * 0.028;
       this.rot += this.rotV; this.phase += 0.02;
-      if (this.y > cv.height + 130) {
-        this.x = Math.random() * cv.width;
-        this.y = -110;
-        this.rot = Math.random() * Math.PI * 2;
-      }
+      if (this.y > cv.height + 130) { this.x = Math.random() * cv.width; this.y = -110; this.rot = Math.random() * Math.PI * 2; }
     }
     draw() {
-      cx.save();
-      cx.globalAlpha = this.al;
-      cx.translate(this.x, this.y);
-      cx.rotate(this.rot);
+      cx.save(); cx.globalAlpha = this.al;
+      cx.translate(this.x, this.y); cx.rotate(this.rot);
       cx.font = `${this.size}px serif`;
       cx.textAlign = 'center'; cx.textBaseline = 'middle';
-      cx.fillText('🎓', 0, 0);
-      cx.restore();
+      cx.fillText('🎓', 0, 0); cx.restore();
     }
   }
   for (let i = 0; i < 10; i++) caps.push(new GradCap(true));
 
-  /* ─── 5. FLYING WORD "GRADUATE" ─── */
   let flyChars = [];
 
-  class FlyWord {
-    constructor() { this._init(true); }
-    _init(first) {
-      this.up   = Math.random() > 0.5;
-      this.x    = 0.05 * cv.width + Math.random() * 0.9 * cv.width;
-      this.y    = this.up ? cv.height + 70 : -70;
-      const spd = Math.random() * 1.8 + 1.0;
-      this.vy   = this.up ? -spd : spd;
-      this.vx   = (Math.random() - 0.5) * 0.7;
-      this.rot  = (Math.random() - 0.5) * 0.35;
-      this.rotV = (Math.random() - 0.5) * 0.010;
-      this.size = Math.random() * 18 + 30;   /* 30–48 px — full word fits */
-      this.al   = Math.random() * 0.4 + 0.45;
-      this.phase = Math.random() * Math.PI * 2;
-      this.wAmp  = Math.random() * 1.8 + 0.6;
-      this.gold  = Math.random() > 0.3;
-      if (first) {
-        this.y = this.up
-          ? cv.height * (0.05 + Math.random() * 1.05)
-          : -cv.height * Math.random() * 0.85;
-      }
-    }
-    step() {
-      this.y += this.vy;
-      this.x += this.vx + Math.sin(this.phase) * this.wAmp * 0.02;
-      this.rot += this.rotV; this.phase += 0.016;
-      const gone = this.up ? this.y < -80 : this.y > cv.height + 80;
-      if (gone) this._init(false);
-    }
-    draw() {
-      cx.save();
-      cx.globalAlpha = this.al;
-      cx.translate(this.x, this.y);
-      cx.rotate(this.rot);
-      cx.font = `700 ${this.size}px 'Cinzel', serif`;
-      cx.textAlign = 'center'; cx.textBaseline = 'middle';
-      cx.shadowBlur = 20;
-      cx.shadowColor = this.gold ? 'rgba(201,168,76,0.95)' : 'rgba(255,255,255,0.75)';
-      if (this.gold) {
-        const hw = this.size * 3.2;   /* approx half-width of 8-char word */
-        const g = cx.createLinearGradient(-hw, 0, hw, 0);
-        g.addColorStop(0,   '#f5e9c0');
-        g.addColorStop(0.5, '#c9a84c');
-        g.addColorStop(1,   '#e8d08a');
-        cx.fillStyle = g;
-      } else {
-        cx.fillStyle = 'rgba(255,255,255,0.90)';
-      }
-      cx.fillText('GRADUATE', 0, 0);
-      cx.restore();
-    }
-  }
-
-  /* flyChars intentionally empty — GRADUATE word removed */
-
-  /* ─── 4. FLYING STREAMERS ─── */
+  /* Streamers */
   let streamers = [];
 
   class Streamer {
@@ -1505,8 +1536,7 @@ REQUIRED.forEach(id => {
         const t = i / this.pts.length;
         cx.globalAlpha = t * this.life * 0.8;
         cx.strokeStyle = `rgb(${r},${g},${b})`;
-        cx.lineWidth = this.w * t;
-        cx.lineCap = 'round';
+        cx.lineWidth = this.w * t; cx.lineCap = 'round';
         cx.beginPath();
         cx.moveTo(this.pts[i-1].x, this.pts[i-1].y);
         cx.lineTo(this.pts[i].x, this.pts[i].y);
@@ -1524,7 +1554,6 @@ REQUIRED.forEach(id => {
   for (let i = 0; i < 4; i++) setTimeout(() => streamers.push(new Streamer()), i * 500);
   setTimeout(spawnStreamer, 3500);
 
-  /* ─── MAIN RENDER LOOP ─── */
   function drawDiamond(cx, x, y, r, col) {
     const [cr,cg,cb] = col;
     const d = r * 3;
@@ -1543,18 +1572,14 @@ REQUIRED.forEach(id => {
     cx.clearRect(0, 0, cv.width, cv.height);
 
     cascade.forEach(p => { p.step(); p.draw(); });
-
     streamers = streamers.filter(s => !s.dead);
     streamers.forEach(s => { s.step(); s.draw(); });
-
     caps.forEach(c => { c.step(); c.draw(); });
-
     flyChars.forEach(c => { c.step(); c.draw(); });
 
     sparks = sparks.filter(s => s.al > 0.012);
     sparks.forEach(s => {
       const [r,g,b] = s.col;
-      // Bright tail
       cx.beginPath(); cx.moveTo(s.px, s.py); cx.lineTo(s.x, s.y);
       cx.strokeStyle = `rgba(${r},${g},${b},${s.al * 0.55})`;
       cx.lineWidth = s.r * 0.75; cx.lineCap = 'round'; cx.stroke();
@@ -1566,7 +1591,6 @@ REQUIRED.forEach(id => {
         cx.fillStyle = `rgb(${r},${g},${b})`;
         cx.beginPath(); cx.arc(s.x, s.y, s.r, 0, Math.PI*2); cx.fill();
       }
-      // Long cross sparkle arm
       cx.strokeStyle = `rgba(${r},${g},${b},${s.al * 0.8})`;
       cx.lineWidth = 0.9;
       cx.beginPath();
@@ -1584,19 +1608,14 @@ REQUIRED.forEach(id => {
   })();
 })();
 
-/* ── YOUTUBE PLAYER ── */
+/* ── YOUTUBE ── */
 window._ytReady = false;
 window._ytPlayer = null;
 
 window.onYouTubeIframeAPIReady = function() {
   window._ytPlayer = new YT.Player('yt-player', {
     videoId: '3OnTWj9Do58',
-    playerVars: {
-      autoplay: 1, controls: 0, loop: 1,
-      playlist: '3OnTWj9Do58', rel: 0,
-      modestbranding: 1, iv_load_policy: 3, fs: 0,
-      start: 10
-    },
+    playerVars: { autoplay:1, controls:0, loop:1, playlist:'3OnTWj9Do58', rel:0, modestbranding:1, iv_load_policy:3, fs:0, start:10 },
     events: {
       onReady: function(e) {
         window._ytReady = true;
@@ -1628,7 +1647,5 @@ function toggleMusic() {
   setTimeout(syncMusicBtn, 200);
 }
 </script>
-<!-- Floating music button -->
-<button id="music-btn" onclick="toggleMusic()" title="Play music" aria-label="Toggle background music">▶</button>
 </body>
 </html>
