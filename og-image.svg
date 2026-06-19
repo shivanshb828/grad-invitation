@@ -79,7 +79,7 @@
 
   <!-- Details row -->
   <text x="600" y="460" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="18" letter-spacing="3" fill="#FFD100">SUNDAY, AUGUST 2ND, 2026</text>
-  <text x="600" y="492" text-anchor="middle" font-family="Georgia, serif" font-size="15" letter-spacing="2" fill="#B8CCE8">5:30 PM  ✦  ROYALE SAKOON, FREMONT, CA  ✦  INDO-WESTERN</text>
+  <text x="600" y="492" text-anchor="middle" font-family="Georgia, serif" font-size="15" letter-spacing="2" fill="#B8CCE8">5:30 PM  ✦  ROYALE SAKOON, FREMONT, CA  ✦  INDO-WESTERN / SUITS</text>
 
   <!-- Bottom divider -->
   <line x1="300" y1="518" x2="900" y2="518" stroke="#FFD100" stroke-width="0.6" opacity="0.25"/>
