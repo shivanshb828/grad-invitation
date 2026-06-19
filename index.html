@@ -1667,37 +1667,37 @@ window._ytPlayer = null;
 window.onYouTubeIframeAPIReady = function() {
   window._ytPlayer = new YT.Player('yt-player', {
     videoId: '3OnTWj9Do58',
-    playerVars: { autoplay:1, controls:0, loop:1, playlist:'3OnTWj9Do58', rel:0, modestbranding:1, iv_load_policy:3, fs:0, start:10, mute:1 },
+    playerVars: { autoplay:1, controls:0, loop:1, playlist:'3OnTWj9Do58', rel:0, modestbranding:1, iv_load_policy:3, fs:0, start:10 },
     events: {
       onReady: function(e) {
         window._ytReady = true;
-        e.target.mute();
+        e.target.setVolume(38);
         e.target.seekTo(10, true);
-        e.target.playVideo(); // always works when muted
+        e.target.playVideo();
       },
       onStateChange: function() { syncMusicBtn(); }
     }
   });
 };
 
-// Unmute on first interaction — music was already playing silently, now it has sound
+// Fallback: if browser blocked autoplay, start on first touch anywhere on the page
 (function() {
-  function _unmute() {
+  function _play() {
     if (window._ytPlayer && window._ytReady) {
-      window._ytPlayer.unMute();
       window._ytPlayer.setVolume(38);
+      window._ytPlayer.playVideo();
     } else {
       var t = setInterval(function() {
         if (window._ytPlayer && window._ytReady) {
-          window._ytPlayer.unMute();
           window._ytPlayer.setVolume(38);
+          window._ytPlayer.playVideo();
           clearInterval(t);
         }
       }, 200);
     }
   }
-  document.addEventListener('pointerdown', _unmute, { once: true });
-  document.addEventListener('keydown', _unmute, { once: true });
+  document.addEventListener('pointerdown', _play, { once: true });
+  document.addEventListener('keydown', _play, { once: true });
 })();
 
 function syncMusicBtn() {
