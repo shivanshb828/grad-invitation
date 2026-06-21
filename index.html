@@ -769,7 +769,7 @@ select option{background:var(--navy-mid);color:var(--text);}
         <div class="detail-card">
           <span class="detail-icon">🕠</span>
           <div class="detail-label">When</div>
-          <div class="detail-value">5:30 PM Onwards</div>
+          <div class="detail-value">5 PM Onwards</div>
         </div>
         <div class="detail-card">
           <span class="detail-icon">👗</span>
@@ -983,7 +983,7 @@ select option{background:var(--navy-mid);color:var(--text);}
            var ics = [
              'BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//ShivanshGradParty//EN',
              'BEGIN:VEVENT',
-             'DTSTART:20260802T173000',
+             'DTSTART:20260802T170000',
              'DTEND:20260802T230000',
              "SUMMARY:Shivansh's Graduation Party — The World Awaits",
              'DESCRIPTION:Join us to celebrate Shivansh Bansal\'s graduation! Dress code: Indo-Western / Suits. Hosted by Sanjeev\\, Pooja & Shanaya Bansal.',
@@ -1001,7 +1001,7 @@ select option{background:var(--navy-mid);color:var(--text);}
              '<p style="font-size:17px;line-height:1.6;">Your RSVP is confirmed — we\'re so excited to celebrate with you!</p>' +
              '<div style="background:rgba(255,209,0,0.08);border:1px solid rgba(255,209,0,0.25);border-radius:10px;padding:20px 24px;margin:24px 0;">' +
              '<p style="margin:0 0 8px;font-size:15px;">📅 <strong style="color:#FFD100;">Sunday, August 2nd, 2026</strong></p>' +
-             '<p style="margin:0 0 8px;font-size:15px;">🕐 <strong style="color:#FFD100;">5:30 PM Onwards</strong></p>' +
+             '<p style="margin:0 0 8px;font-size:15px;">🕐 <strong style="color:#FFD100;">5 PM Onwards</strong></p>' +
              '<p style="margin:0 0 8px;font-size:15px;">📍 <strong style="color:#FFD100;">Royale Sakoon</strong> — 5200 Mowry Ave Suite K, Fremont, CA 94538</p>' +
              '<p style="margin:0;font-size:15px;">👗 <strong style="color:#FFD100;">Dress Code:</strong> Indo-Western / Suits</p></div>' +
              '<p style="font-size:15px;color:#B8CCE8;">A calendar invite is attached — add it so you don\'t miss it!</p>' +
@@ -1009,7 +1009,7 @@ select option{background:var(--navy-mid);color:var(--text);}
              '<span style="font-size:14px;color:#B8CCE8;">Sanjeev, Pooja &amp; Shanaya</span></p></div></div>';
            GmailApp.sendEmail(data.email,
              "You're Confirmed! ✦ Shivansh's Graduation Party — Aug 2nd",
-             "Hi " + firstName + ",\n\nYour RSVP is confirmed!\n\nSunday, August 2nd 2026 | 5:30 PM onwards\nRoyale Sakoon, 5200 Mowry Ave Suite K, Fremont, CA 94538\nDress code: Indo-Western / Suits\n\nA calendar invite is attached.\n\nWith Love,\nThe Bansal Family",
+             "Hi " + firstName + ",\n\nYour RSVP is confirmed!\n\nSunday, August 2nd 2026 | 5 PM onwards\nRoyale Sakoon, 5200 Mowry Ave Suite K, Fremont, CA 94538\nDress code: Indo-Western / Suits\n\nA calendar invite is attached.\n\nWith Love,\nThe Bansal Family",
              { htmlBody: htmlBody, attachments: [icsBlob] });
          } else {
            GmailApp.sendEmail(data.email,
@@ -1289,7 +1289,7 @@ window.launchFireworks = function() {
 
 /* ── COUNTDOWN ── */
 (function() {
-  const target = new Date('2026-08-02T17:30:00-07:00');
+  const target = new Date('2026-08-02T17:00:00-07:00');
   const els = { d: document.getElementById('cd-d'), h: document.getElementById('cd-h'), m: document.getElementById('cd-m'), s: document.getElementById('cd-s') };
 
   function tick() {
@@ -1341,7 +1341,7 @@ document.getElementById('cal-btn').addEventListener('click', function() {
   const ics = [
     'BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//ShivanshGradParty//EN',
     'BEGIN:VEVENT',
-    'DTSTART:20260802T173000',
+    'DTSTART:20260802T170000',
     'DTEND:20260802T230000',
     "SUMMARY:Shivansh's Graduation Party — The World Awaits",
     'DESCRIPTION:Join us to celebrate Shivansh Bansal\'s graduation! Dress code: Indo-Western / Suits. Hosted by Sanjeev\\, Pooja & Shanaya Bansal.',
