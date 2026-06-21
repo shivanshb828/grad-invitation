@@ -1382,21 +1382,12 @@ document.getElementById('rsvp-form').addEventListener('submit', async function(e
   const sm = document.getElementById('success-msg');
 
   try {
-    // Verify first — block until we know if they're on the list
+    // Submit to backend
     if (SHEETS_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
-      const resp = await fetch(SHEETS_URL, {method: 'POST', body: fd});
-      let result = {status: 'ok'};
-      try { result = await resp.json(); } catch(_) {}
-
-      if (result.status === 'unauthorized') {
-        errEl.textContent = "We couldn't find your name on the guest list. Please double-check your phone number, or reach out to us directly.";
-        errEl.style.display = 'block';
-        btn.textContent = orig; btn.disabled = false;
-        return;
-      }
+      await fetch(SHEETS_URL, {method: 'POST', body: fd}).catch(() => {});
     }
 
-    // Verified — hide form and title immediately
+    // Hide form and title immediately
     formCard.querySelector('.form-title').style.display = 'none';
     formCard.querySelector('.form-subtitle').style.display = 'none';
     this.style.display = 'none';
